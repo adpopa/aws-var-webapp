@@ -1,0 +1,28 @@
+{% extends "_base.htm" %}
+
+{% block title %}
+  Main Page
+{% endblock %}
+
+{% block pageblock %}
+
+  <div class="jumbotron">
+    <h2>Hello, world!</h2>
+    <p class="lead">This is my front-end for Cloud Computing (COMM034) coursework</p>
+    <hr class="my-4">
+
+    <p>Please enter the following parameters:</p>
+
+    {% include 'form.htm' %}
+
+  </div>
+
+  {% if plot_div %}
+    {% include 'chart.htm' %}
+  {% endif %}
+
+  {% if table_arr %}
+    {% include 'table.htm' %}
+  {% endif %}
+
+{% endblock %}

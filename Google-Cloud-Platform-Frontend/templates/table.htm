@@ -1,0 +1,29 @@
+<div role="chart" class="container">
+  <p> Total profit/loss: <strong> {{total_profit_loss}} </strong></p>
+  <p> Average VAR 95%:  <strong> {{var_95}} </strong></p>
+  <p> Average VAR 99%:  <strong> {{var_99}} </strong></p>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Signal</th>
+        <th scope="col">Profit/Loss</th>
+        <th scope="col">Price</th>
+        <th scope="col">VAR 95%</th>
+        <th scope="col">VAR 99%</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in table_arr %}
+        <tr>
+          <td>{{row[0]}}</td>
+          <td>{{row[1]}}</td>
+          <td>{{row[2]}}</td>
+          <td>{{row[3]}}</td>
+          <td>{{row[4]}}</td>
+          <td>{{row[5]}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

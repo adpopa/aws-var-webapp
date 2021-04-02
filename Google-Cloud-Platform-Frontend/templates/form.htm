@@ -1,0 +1,74 @@
+<div>
+  <form id="map" method="post" action="/map">
+    <div class="row">
+      <div class="form-group col-md-2">
+        <label for="stockSymbol">Stock symbol</label>
+        <select class="form-control" name="stockSymbol" required>
+          <option>AAPL</option>
+          <option>AMZN</option>
+          <option>BABA</option>
+          <option>BTC-GBP</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="movingAverage">Moving Average period</label>
+        <input type="number" name="movingAverage" class="form-control" min="2" step="1"  pattern="\d+" required aria-describedby="movingAverageHelp">
+        <small id="movingAverageHelp" class="form-text text-muted">Minimum 2 days</small>
+      </div>
+      <div class="col-md-2">
+        <label for="numberResources" class="text-muted">Calculate Moving Average</label>
+        <button type="submit" class="btn btn-primary" name="btnSubmit">Submit</button>
+      </div>
+    </div>
+  </form>
+  <hr>
+  <form id="calculate" method="post" action="/calculate">
+    <h3>Wait 10 minutes for the EMR to produce the Moving Average before producing VAR</h3>
+    <div class="row">
+      <div class="form-group col-md">
+        <label for="stockSymbol">Stock symbol</label>
+        <select class="form-control" name="stockSymbol" required>
+          <option>AAPL</option>
+          <option>AMZN</option>
+          <option>BABA</option>
+          <option>BTC-GBP</option>
+        </select>
+      </div>
+      <div class="form-group col-md">
+        <label for="stockUnits">Stock Units</label>
+        <input type="number" name="stockUnits" class="form-control" min="1" step="1"  pattern="\d+" required aria-describedby="stockUnitsHelp">
+        <small id="stockUnitsHelp" class="form-text text-muted">Minimum 1 unit</small>
+      </div>
+      <div class="form-group col-md">
+        <label for="movingAverage">Moving Average period</label>
+        <input type="number" name="movingAverage" class="form-control" min="2" step="1"  pattern="\d+" required aria-describedby="movingAverageHelp">
+        <small id="movingAverageHelp" class="form-text text-muted">Minimum 2 days</small>
+      </div>
+      <div class="form-group col-md">
+        <label for="varPeriod">VAR period</label>
+        <input type="number" name="varPeriod" class="form-control" min="2" step="1" pattern="\d+" required aria-describedby="varPeriodHelp">
+        <small id="varPeriodHelp" class="form-text text-muted">Minimum 2 days</small>
+      </div>
+      <div class="form-group col-md">
+        <label for="mcSamples">VAR Monte Carlo samples</label>
+        <input type="number" name="mcSamples" class="form-control" min="2" step="1" pattern="\d+" required aria-describedby="mcSamplesHelp">
+        <small id="mcSamplesHelp" class="form-text text-muted">Minimum 2 samples</small>
+      </div>
+      <div class="form-group col-md">
+        <label for="numberResources">Number of resources</label>
+        <input type="number" name="numberResources" class="form-control" min="1" step="1" pattern="\d+" required aria-describedby="numberResourcesHelp">
+        <small id="numberResourcesHelp" class="form-text text-muted">Minimum 2 samples</small>
+      </div>
+      <div class="col-md-1">
+        <label for="numberResources" class="text-muted">Calculate VAR</label>
+        <button type="submit" class="btn btn-primary" name="btnSubmit">Submit</button>
+      </div>
+    </div>
+  </form>
+
+  {% if note %}
+    <h3 class="invalid-feedback">
+      {{ note }}
+    </h3>
+  {% endif %}
+</div>
